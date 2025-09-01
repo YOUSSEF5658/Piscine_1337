@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguermec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/26 11:00:37 by yguermec          #+#    #+#             */
-/*   Updated: 2025/08/28 14:29:01 by yguermec         ###   ########.fr       */
+/*   Created: 2025/08/31 11:02:47 by yguermec          #+#    #+#             */
+/*   Updated: 2025/09/01 15:40:19 by yguermec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	main(int argc, char *argv[])
+int	ft_sqrt(int nb)
 {
 	int	i;
 
-	i = 0;
-	if (argc >= 1)
+	i = 1;
+	if (nb <= 0)
+		return (0);
+	while (i <= nb / i)
 	{
-		while (argv[0][i] != '\0')
-		{
-			write(1, &argv[0][i], 1);
-			i++;
-		}
+		if (i * i == nb)
+			return (i);
+		i++;
 	}
-	write(1, "\n", 1);
 	return (0);
 }
+/*int main()
+{
+	printf("%d",ft_sqrt(16));
+}*/

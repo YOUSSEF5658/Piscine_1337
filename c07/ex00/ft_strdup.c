@@ -1,30 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguermec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/26 11:00:37 by yguermec          #+#    #+#             */
-/*   Updated: 2025/08/28 14:29:01 by yguermec         ###   ########.fr       */
+/*   Created: 2025/09/01 10:09:25 by yguermec          #+#    #+#             */
+/*   Updated: 2025/09/01 17:46:59 by yguermec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-int	main(int argc, char *argv[])
+int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (argc >= 1)
+	while (str[i])
 	{
-		while (argv[0][i] != '\0')
-		{
-			write(1, &argv[0][i], 1);
-			i++;
-		}
+		i++;
 	}
-	write(1, "\n", 1);
-	return (0);
+	return (i);
 }
+
+char	*ft_strdup(char *src)
+{
+	char	*p;
+	int		i;
+	int		len;
+
+	len = ft_strlen(src);
+	i = 0;
+	p = malloc((len + 1) * sizeof(char));
+	if (p == NULL)
+		return (NULL);
+	while (src[i] != '\0')
+	{
+		p[i] = src[i];
+		i++;
+	}
+	p[i] = '\0';
+	return (p);
+}
+/*int main()
+{
+	char str[] = "hello world";
+	printf("%s",ft_strdup(str));
+}*/

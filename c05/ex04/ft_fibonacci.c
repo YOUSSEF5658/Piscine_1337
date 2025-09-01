@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguermec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/26 11:00:37 by yguermec          #+#    #+#             */
-/*   Updated: 2025/08/28 14:29:01 by yguermec         ###   ########.fr       */
+/*   Created: 2025/08/30 19:41:37 by yguermec          #+#    #+#             */
+/*   Updated: 2025/08/31 11:56:35 by yguermec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	main(int argc, char *argv[])
+int	ft_fibonacci(int index)
 {
-	int	i;
-
-	i = 0;
-	if (argc >= 1)
-	{
-		while (argv[0][i] != '\0')
-		{
-			write(1, &argv[0][i], 1);
-			i++;
-		}
-	}
-	write(1, "\n", 1);
-	return (0);
+	if (index < 0)
+		return (-1);
+	if (index < 2)
+		return (index);
+	else
+		return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
+/*int main()
+{
+	printf("%d",ft_fibonacci(-2));
+
+}*/

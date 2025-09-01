@@ -1,34 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguermec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/30 16:08:19 by yguermec          #+#    #+#             */
-/*   Updated: 2025/09/01 15:06:52 by yguermec         ###   ########.fr       */
+/*   Created: 2025/09/01 12:04:05 by yguermec          #+#    #+#             */
+/*   Updated: 2025/09/01 12:04:34 by yguermec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_factorial(int nb)
-{
-	int	i;
-	int	r;
+#include <stdlib.h>
+#include <stdio.h>
 
-	i = 1;
-	r = 1;
-	if (nb < 0)
-		return (0);
-	if (nb == 1 || nb == 0)
-		return (1);
-	while (i <= nb)
+int	*ft_range(int min, int max)
+{
+	int	*arr;
+	int	size;
+	int	i;
+
+	i = 0;
+	if (min >= max)
+		return (NULL);
+	size = max - min;
+	arr = malloc((size) * sizeof(int));
+	if (arr == NULL)
+		return (NULL);
+	while (min < max)
 	{
-		r = r * i;
+		arr[i] = min;
 		i++;
+		min++;
 	}
-	return (r);
+	return (arr);
 }
 /*int main()
 {
-	printf("%d",ft_iterative_factorial(5));
+	int *arr;
+	int i = 0;
+	int max = 5;
+	int min = 1;
+	int size = max - min;
+	arr = ft_range(min,max);
+	while (i < size)
+	{
+		printf("%d",arr[i]);
+		i++;
+	}
 }*/
